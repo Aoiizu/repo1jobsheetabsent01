@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class UI1 {
     private String name, NIM, studentClass, letterGrade, qualification;
     private int absenNumber;
-    private double quizGrade, assignmentGrade, examGrade, finalGrade;
+    private double quizGrade, assignmentGrade, examGrade, utsGrade, finalGrade;
 
     public void inputData() {
         Scanner sc = new Scanner(System.in);
@@ -15,9 +15,10 @@ public class UI1 {
         System.out.println("===============================");
         System.out.print("Masukkan nilai kuis: "); quizGrade = sc.nextDouble();
         System.out.print("Masukkan nilai tugas: "); assignmentGrade = sc.nextDouble();
-        System.out.print("Masukkan nilai ujian: "); examGrade = sc.nextDouble();
+        System.out.print("Masukkan nilai UTS: "); utsGrade = sc.nextDouble();
+        System.out.print("Masukkan nilai UAS: "); examGrade = sc.nextDouble();
         System.out.println("===============================");
-        finalGrade = (quizGrade + assignmentGrade + examGrade) / 3;
+        finalGrade = (quizGrade + assignmentGrade + utsGrade + examGrade) / 4;
     }
 
     public void convertGrade() {
@@ -46,3 +47,4 @@ public class UI1 {
         student.displayResult();
     }
 }
+
