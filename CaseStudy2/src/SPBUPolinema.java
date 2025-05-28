@@ -10,7 +10,7 @@ public class SPBUPolinema {
 
         int pilihan;
         do {
-            System.out.println("-- SPBU Polinema --");
+            System.out.println("\n-- SPBU Polinema --");
             System.out.println("1. Tambah Antrian Kendaraan");
             System.out.println("2. Tampilkan Antrian");
             System.out.println("3. Cek Jumlah Antrian Kendaraan");
@@ -38,27 +38,32 @@ public class SPBUPolinema {
                     sll.printSize();
                     break;
                 case 4:
-                    System.out.println("Petugas melayani: " + sll.head.data.platNomor);
+                    if (sll.isEmpty()) {
+                        System.out.println("Data masih kosong.");
+                    } else {
+                        System.out.println("Petugas melayani: " + sll.head.data.platNomor);
 
-                    harko.nextLine();
-                    System.out.print("Masukkan jenis BBM: ");
-                    String BBM = harko.nextLine();
-                    System.out.print("Masukkan Harga per Liter: ");
-                    double hpl = harko.nextDouble();
-                    System.out.print("Masukkan Jumlah Liter: ");
-                    double liter = harko.nextDouble();
+                        harko.nextLine();
+                        System.out.print("Masukkan jenis BBM: ");
+                        String BBM = harko.nextLine();
+                        System.out.print("Masukkan Harga per Liter: ");
+                        double hpl = harko.nextDouble();
+                        System.out.print("Masukkan Jumlah Liter: ");
+                        double liter = harko.nextDouble();
 
-                    BBM newBBM = new BBM(BBM, hpl);
-                    TransaksiPengisian newRiwayat = new TransaksiPengisian(sll.head.data, newBBM, liter);
-                    hist.enqueue(newRiwayat);
-                    sll.removeFirst();
+                        BBM newBBM = new BBM(BBM, hpl);
+                        TransaksiPengisian newRiwayat = new TransaksiPengisian(sll.head.data, newBBM, liter);
+                        hist.enqueue(newRiwayat);
+                        sll.removeFirst();
 
-                    System.out.println("Transaksi berhasil dicatat.");
+                        System.out.println("Transaksi berhasil dicatat.");
+                    }
                     break;
                 case 5:
                     hist.print();
                     break;
                 case 6:
+                    System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Pilihan Tidak Tersedia");
